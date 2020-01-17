@@ -56,6 +56,7 @@ h2 {
   text-align: center;
 }
 #login {
+  font-size: 20px;
   grid-area: 4 / 5 / 4 / 5;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 12px;

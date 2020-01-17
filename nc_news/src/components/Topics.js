@@ -13,7 +13,7 @@ export default class Topics extends Component {
   fetchTopics() {
     api.getTopics().then(data => {
       this.setState({ topics: data.topics, isLoading: false });
-    });
+    })
   }
   render() {
     const { isLoading, topics } = this.state;

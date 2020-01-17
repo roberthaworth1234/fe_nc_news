@@ -87,9 +87,11 @@ export default class CommentCard extends Component {
           });
       });
   };
+
   handleChange = (e, inputName) => {
     this.setState({ [inputName]: e });
   };
+
   handleDelete = id => {
     api
       .deleteComment(id)

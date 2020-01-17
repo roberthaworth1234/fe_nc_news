@@ -4,7 +4,7 @@ import ErrorDisplay from "./ErrorDisplay";
 
 export default class Voting extends Component {
   state = {
-    votes: null,
+    votes: 0,
     voteChange: 0,
     err: {}
   };
@@ -20,7 +20,7 @@ export default class Voting extends Component {
       <div>
         Votes {votes}
         <button
-          disabled={voteChange === 1 ? true : null}
+          disabled={voteChange > 0 ? true : null}
           className="specialButtonUp"
           onClick={() => {
             this.handleVotes(id, 1);
@@ -31,7 +31,7 @@ export default class Voting extends Component {
           </span>
         </button>
         <button
-          disabled={voteChange === -1 ? true : null}
+          disabled={voteChange < 0 ? true : null}
           className="specialButtonDown"
           onClick={() => {
             this.handleVotes(id, -1);
@@ -45,11 +45,11 @@ export default class Voting extends Component {
     );
   }
   handleVotes(id, direction) {
-    const { votes, topic } = this.props;
+    const { topic } = this.props;
     this.setState(currentState => {
       return {
-        votes: currentState.votes + direction || votes + direction,
-        voteChange: currentState.voteChange + direction
+        voteChange: currentState.voteChange + direction,
+        votes: currentState.votes + direction
       };
     });
     api

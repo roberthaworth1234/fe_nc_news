@@ -17,8 +17,7 @@ export default class Topics extends Component {
   }
   render() {
     const { isLoading, topics } = this.state;
-    const { handle } = this.props;
-
+    const { handleClick } = this.props;
     if (isLoading) return <p>Loading!!!</p>;
     return (
       <main>
@@ -28,7 +27,7 @@ export default class Topics extends Component {
             return (
               <Link
                 onClick={() => {
-                  handle("topic");
+                  handleClick("topictoarticle");
                 }}
                 to={`/articles/topics/${topic.slug}`}
                 key={topic.slug}

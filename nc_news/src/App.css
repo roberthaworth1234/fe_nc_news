@@ -31,6 +31,9 @@ ul {
 }
 
 .headers {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20%;
+  grid-template-rows: 20% 20% 20% 20%;
   background-image: url("./images/IMG_8595.jpg");
   background-size: 100%;
   border-bottom: solid rgb(30, 2, 155) 5px;
@@ -51,6 +54,12 @@ nav {
 }
 h2 {
   text-align: center;
+}
+#login {
+  grid-area: 4 / 5 / 4 / 5;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 12px;
+  color: rgb(42, 22, 60);
 }
 #router {
   color: rgb(42, 22, 60);
@@ -96,12 +105,6 @@ a {
   background-color: #d3d0cb;
   color: black;
 }
-@media screen and (max-width: 700px) {
-  #app {
-    display: flex;
-    flex-direction: column;
-  }
-}
 
 article {
   padding: 4%;
@@ -112,4 +115,65 @@ article {
 h4 {
   font-size: 22px;
   text-decoration: underline;
+}
+
+.dropbtn {
+  background-color: rgb(42, 22, 60);
+  color: white;
+  padding: 12px;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  grid-area: 5 /5 /5/5;
+  display: inline-block;
+}
+
+.dropdown-content {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+  display: none;
+  position: absolute;
+  background-color: #005574;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+@media screen and (max-width: 900px) {
+  #app {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width:540px) {
+  .headers {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20%;
+  grid-template-rows: 20% 20% 20% 20%;
+  
+  }
+  .dropdown {
+    grid-area: 4/1/4/1;
+  }
+
 }

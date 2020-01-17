@@ -17,14 +17,22 @@ export default class Topics extends Component {
   }
   render() {
     const { isLoading, topics } = this.state;
+    const { handle } = this.props;
+
     if (isLoading) return <p>Loading!!!</p>;
     return (
       <main>
-        <h3>Topics</h3>
+        <h2>Topics</h2>
         <ul>
           {topics.map(topic => {
             return (
-              <Link to={`/articles/topics/${topic.slug}`} key={topic.slug}>
+              <Link
+                onClick={() => {
+                  handle("topic");
+                }}
+                to={`/articles/topics/${topic.slug}`}
+                key={topic.slug}
+              >
                 <li>
                   <p>Topic - {topic.slug}</p>
                   <p>Description - {topic.description}</p>

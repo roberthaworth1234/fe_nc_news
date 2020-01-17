@@ -12,7 +12,7 @@ export const getArticles = topic => {
 
 export const getSingleArticle = id => {
   return axios.get(`${baseURL}/articles/${id}`).then(({ data }) => {
-    return data;
+    return data.article;
   });
 };
 
@@ -22,20 +22,14 @@ export const getComments = id => {
   });
 };
 
-export const changeVotes = (id, direction) => {
-  const patchObj = [{ inc_votes: 1 }, { inc_votes: -1 }];
-  if (direction === "up") {
-    return axios
-      .patch(`${baseURL}/articles/${id}`, patchObj[0])
-      .then(({ data }) => {
-        return data.article;
-      });
-  } else
-    return axios
-      .patch(`${baseURL}/articles/${id}`, patchObj[1])
-      .then(({ data }) => {
-        return data.article;
-      });
+export const changeVotes = (id, direction, type) => {
+  let component = "";
+  type ? (component = "articles") : (component = "comments");
+  return axios
+    .patch(`${baseURL}/${component}/${id}`, { inc_votes: direction })
+    .then(({ data }) => {
+      return data.article;
+    });
 };
 
 export const getTopics = () => {
@@ -52,4 +46,21 @@ export const getSortedArticles = (sortVal, direction) => {
     .then(({ data }) => {
       return data;
     });
+};
+
+export const addComment = (id, postComment) => {
+  return axios
+    .post(`${baseURL}/articles/${id}/comments`, {
+      username: "happyamy2016",
+      body: postComment
+    })
+    .then(res => {
+      return res.data;
+    });
+};
+
+export const deleteComment = id => {
+  return axios.delete(`${baseURL}/comments/${id}`).then(res => {
+    return res;
+  });
 };

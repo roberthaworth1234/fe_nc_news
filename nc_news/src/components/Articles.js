@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import ArticleCards from "./ArticleCards";
 import * as api from "./api";
+import ErrorDisplay from "./ErrorDisplay";
 
 export default class Articles extends Component {
   state = {
     articles: [],
     isLoading: true,
-    direction: true
+    direction: true,
+    button: "select a sort button",
+    err: {}
   };
 
   componentDidMount() {
@@ -27,21 +30,27 @@ export default class Articles extends Component {
       .getArticles(topic)
       .then(data =>
         this.setState({ articles: data.articles, isLoading: false })
-      );
+      )
+      .catch(({ response }) => {
+        if (response)
+          this.setState({
+            err: {
+              status: response.status,
+              msg: "Articles " + response.data.msg
+            },
+            isLoading: false
+          });
+      });
   }
 
   render() {
-    const { isLoading, articles } = this.state;
+    const { isLoading, articles, err } = this.state;
     if (isLoading) return <p>loading!!!</p>;
+    if (err.status) return <ErrorDisplay err={err} />;
     return (
       <main>
-        <h2>Articles </h2>
-        {/* <a href="Newspaper">
-          <img
-            src=""
-            alt="A picture of a  newspaper"
-          />
-        </a> */}
+        <h2>News</h2>
+        <p>Sorted By:{this.state.button}</p>
         <button onClick={() => this.handleClick("author")}>
           Sortby Author
         </button>
@@ -62,8 +71,24 @@ export default class Articles extends Component {
   }
   handleClick(button) {
     const { direction } = this.state;
-    api.getSortedArticles(button, direction).then(data => {
-      this.setState({ articles: data.articles, direction: !direction });
-    });
+    api
+      .getSortedArticles(button, direction)
+      .then(data => {
+        this.setState({
+          articles: data.articles,
+          button: button + (direction ? " ascending ↑" : " descending ↓"),
+          direction: !direction
+        });
+      })
+      .catch(({ response }) => {
+        if (response)
+          this.setState({
+            err: {
+              status: response.status,
+              msg: "Articles could not be sorted at this time"
+            },
+            isLoading: false
+          });
+      });
   }
 }

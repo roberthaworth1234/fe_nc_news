@@ -1,28 +1,25 @@
 #app {
-  background-color: rgb(159, 159, 171);
+  background-color: #587b7f;
   display: grid;
   grid-template-columns: 1fr 7fr;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: 1fr 14fr;
 }
 
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.specialButtonUp {
+  background-color: rgb(105, 174, 105);
+}
+.specialButtonDown {
+  background-color: rgb(194, 95, 88);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 1s linear;
-  }
-} */
 button {
-  color: white;
-  padding: 15px 32px;
+  color: rgb(42, 22, 60);
+  padding: 10px 15px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 2fr;
-  margin: 2%;
+  margin: 1%;
   cursor: pointer;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
@@ -32,50 +29,87 @@ button {
 ul {
   list-style-type: none;
 }
+
 .headers {
+  background-image: url("./images/IMG_8595.jpg");
+  background-size: 100%;
+  border-bottom: solid rgb(30, 2, 155) 5px;
+  color: rgb(42, 22, 60);
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 36px;
   grid-area: 1 / 1 / 1 / 3;
   text-align: center;
 }
+
 nav {
-  font-family: Arial, Helvetica, sans-serif;
+  color: goldenrod;
+  font-family: "Ubuntu", Times, serif;
   grid-area: 2 / 1 / 3 / 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
+}
+h2 {
+  text-align: center;
 }
 #router {
+  color: rgb(42, 22, 60);
   grid-area: 2 / 2 / 2 / 3;
 }
 main {
   grid-area: 2 / 2 / 2/ 3;
   margin: 1fr;
 }
+a:hover {
+  color: goldenrod;
+}
+a {
+  text-decoration-line: none;
+  color: rgb(42, 22, 60);
+}
 
 #li {
+  border-radius: 25px;
+  border: #393e41 solid 2px;
   padding: 2%;
 }
-/* .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} 
 
- .App-link {
-  color: #61dafb;
+.sidenav {
+  background-color: #393e41;
+  overflow: hidden;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.sidenav a {
+  float: left;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.sidenav a:hover {
+  background-color: goldenrod;
+  color: black;
+}
+
+.sidenav a.active {
+  background-color: #d3d0cb;
+  color: black;
+}
+@media screen and (max-width: 700px) {
+  #app {
+    display: flex;
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+}
+
+article {
+  padding: 4%;
+  display: flex;
+  flex-direction: column;
+}
+
+h4 {
+  font-size: 22px;
+  text-decoration: underline;
+}

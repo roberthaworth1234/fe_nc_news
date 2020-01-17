@@ -48,10 +48,10 @@ export const getSortedArticles = (sortVal, direction) => {
     });
 };
 
-export const addComment = (id, postComment) => {
+export const addComment = (id, postComment, user) => {
   return axios
     .post(`${baseURL}/articles/${id}/comments`, {
-      username: "happyamy2016",
+      username: user,
       body: postComment
     })
     .then(res => {

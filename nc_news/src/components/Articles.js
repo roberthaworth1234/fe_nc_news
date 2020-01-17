@@ -45,7 +45,7 @@ export default class Articles extends Component {
 
   render() {
     const { isLoading, articles, err } = this.state;
-    if (isLoading) return <p>loading!!!</p>;
+    if (isLoading) return <div className="loader"></div>;
     if (err.status) return <ErrorDisplay err={err} />;
     return (
       <main>
@@ -61,7 +61,7 @@ export default class Articles extends Component {
           Sortby Comment Count
         </button>
         <button onClick={() => this.handleClick("votes")}>Sortby Votes</button>
-        <ul class="ulart">
+        <ul className="ulart">
           {articles.map(article => {
             return <ArticleCards key={article.article_id} article={article} />;
           })}
@@ -70,11 +70,13 @@ export default class Articles extends Component {
     );
   }
   handleClick(button) {
+    this.setState({isLoading: true})
     const { direction } = this.state;
     api
       .getSortedArticles(button, direction)
       .then(data => {
         this.setState({
+          isLoading: false,
           articles: data.articles,
           button: button + (direction ? " ascending ↑" : " descending ↓"),
           direction: !direction

@@ -38,7 +38,7 @@ export default class IndividualArticle extends Component {
     const { article_id, title, body, votes, topic, isLoading, err } = this.state;
     const { user } = this.props;
     if(err.status) return <ErrorDisplay err={err}/>
-    if (isLoading) return <p>Loading!!!</p>;
+    if (isLoading) return <div className="loader"></div>;
     return (
       <article>
         <h3>{title} </h3>

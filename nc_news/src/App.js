@@ -11,8 +11,14 @@ import "./App.css";
 
 export default class App extends React.Component {
   state = {
-    user: "happyamy2016",
-    users: ["happyamy2016", "jesssjelly", "cooljmessy", "weegembump", 'tickle122'],
+    user: "jessjelly",
+    users: [
+      "happyamy2016",
+      "jessjelly",
+      "cooljmessy",
+      "weegembump",
+      "tickle122"
+    ],
     selectedNav: true,
     highLighted: "article"
   };
@@ -59,5 +65,11 @@ export default class App extends React.Component {
   };
   selectUser = user => {
     this.setState({ user: user });
+    localStorage.setItem("myUser", user);
+  };
+  componentDidMount = () => {
+    this.setState({ user: localStorage.getItem("myUser") });
+    if (localStorage.getItem("myUser") === null)
+      return this.setState({ user: "jessjelly" });
   };
 }

@@ -1,6 +1,12 @@
 import React from "react";
 
-export default function AddComment({ handleChange, handleSubmit }) {
+export default function AddComment({
+  handleChange,
+  handleSubmit,
+  postComment,
+  isLoading
+}) {
+  if(isLoading) return <div className="loader"></div>
   return (
     <form
       onSubmit={e => {
@@ -10,6 +16,7 @@ export default function AddComment({ handleChange, handleSubmit }) {
       <label>
         Add a Comment:
         <input
+          value={postComment}
           onChange={e => {
             handleChange(e.target.value, "postComment");
           }}

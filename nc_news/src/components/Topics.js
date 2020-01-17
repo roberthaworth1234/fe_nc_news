@@ -18,7 +18,7 @@ export default class Topics extends Component {
   render() {
     const { isLoading, topics } = this.state;
     const { handleClick } = this.props;
-    if (isLoading) return <p>Loading!!!</p>;
+    if (isLoading) return <div className="loader"></div>;
     return (
       <main>
         <h2>Topics</h2>

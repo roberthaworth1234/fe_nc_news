@@ -9,17 +9,21 @@ export default class CommentCard extends Component {
   state = {
     postComment: "",
     comments: [],
-    err: {}
+    err: {},
+    isLoading: false
   };
   render() {
-    const { err } = this.state;
+    const { err, isLoading } = this.state;
+    if (isLoading) return <div className="loader"></div>;
     if (err.status) return <ErrorDisplay err={err} />;
-    const { comments } = this.state;
+    const { comments, postComment } = this.state;
     const { user } = this.props;
     return (
       <ul>
         <h4>Comments</h4>
         <AddComment
+          isLoading={isLoading}
+          postComment={postComment}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
@@ -28,12 +32,14 @@ export default class CommentCard extends Component {
             <li key={comment.comment_id}>
               <h5>{comment.author}</h5>
               <p>{comment.body}</p>
-              <DeleteButton
+             {(user === comment.author) ?  <DeleteButton
+                deleteNotAllowed={this.deleteNotAllowed}
+                isLoading={isLoading}
                 handleDelete={this.handleDelete}
                 user={user}
                 author={comment.author}
                 id={comment.comment_id}
-              />
+             /> : null}
               <Voting id={comment.comment_id} votes={comment.votes} />
             </li>
           );
@@ -68,13 +74,16 @@ export default class CommentCard extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { article_id } = this.props;
+    const { article_id, user } = this.props;
     const { postComment, comments } = this.state;
+    this.setState({ isLoading: true });
     api
-      .addComment(article_id, postComment)
+      .addComment(article_id, postComment, user)
       .then(({ comment }) => {
         return this.setState({
-          comments: [comment, ...comments]
+          comments: [comment, ...comments],
+          postComment: "",
+          isLoading: false
         });
       })
       .catch(({ response }) => {
@@ -93,11 +102,13 @@ export default class CommentCard extends Component {
   };
 
   handleDelete = id => {
+    this.setState({ isLoading: true });
     api
       .deleteComment(id)
       .then(res => {
         this.setState(currentState => {
           return {
+            isLoading: false,
             comments: currentState.comments.filter(comment => {
               return comment.comment_id !== id;
             })
@@ -114,4 +125,5 @@ export default class CommentCard extends Component {
           });
       });
   };
+  
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "@reach/router";
+import timeFormatter from "./utilityFunc";
 
 export default function ArticleCards({ article }) {
   return (
@@ -11,7 +12,7 @@ export default function ArticleCards({ article }) {
           <br></br> Votes | {article.votes}
         </h3>
         <p>
-          by: {article.author} | created - {Date(article.created_at)}
+          by: {article.author} | created - {timeFormatter(article.created_at)}
         </p>
       </li>
     </Link>

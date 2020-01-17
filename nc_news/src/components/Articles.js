@@ -50,7 +50,7 @@ export default class Articles extends Component {
     return (
       <main>
         <h2>News</h2>
-        <p>Sorted By:{this.state.button}</p>
+        <p className="sorted">Sorted By:{this.state.button}</p>
         <button onClick={() => this.handleClick("author")}>
           Sortby Author
         </button>
@@ -61,7 +61,7 @@ export default class Articles extends Component {
           Sortby Comment Count
         </button>
         <button onClick={() => this.handleClick("votes")}>Sortby Votes</button>
-        <ul>
+        <ul class="ulart">
           {articles.map(article => {
             return <ArticleCards key={article.article_id} article={article} />;
           })}

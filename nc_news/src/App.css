@@ -26,7 +26,13 @@ button {
   background-color: rgb(131, 176, 186);
   border: rgb(57, 57, 113) solid 5px;
 }
-ul {
+.ulart {
+   columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  list-style-type: none;
+}
+.ul {
   list-style-type: none;
 }
 
@@ -79,14 +85,19 @@ a {
 }
 
 #li {
+
   border-radius: 25px;
-  border: #393e41 solid 2px;
-  padding: 2%;
+  border-top: #393e41 solid 2px;
+  padding: 1%;
 }
 
 .sidenav {
   background-color: #393e41;
   overflow: hidden;
+}
+.sorted{
+  
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .sidenav a {

@@ -125,5 +125,4 @@ export default class CommentCard extends Component {
           });
       });
   };
-  
 }

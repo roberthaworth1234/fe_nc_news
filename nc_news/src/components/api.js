@@ -63,4 +63,5 @@ export const deleteComment = id => {
   return axios.delete(`${baseURL}/comments/${id}`).then(res => {
     return res;
   });
+  
 };

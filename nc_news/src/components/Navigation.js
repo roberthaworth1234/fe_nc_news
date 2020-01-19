@@ -1,15 +1,24 @@
 import { Link } from "@reach/router";
 import React from "react";
 
-export default function Navigation({ selectedNav, handleClick }) {
+export default function Navigation({ highLighted, handleClick }) {
   return (
     <nav className="sidenav">
       <h2>Navigation </h2>
       <Link
         onClick={() => {
+          handleClick("welcome");
+        }}
+        className={highLighted === "welcome" ? "active" : "none"}
+        to="/"
+      >
+        Welcome
+      </Link>
+      <Link
+        onClick={() => {
           handleClick("topic");
         }}
-        className={selectedNav ? "none" : "active"}
+        className={highLighted === "topic" ? "active" : "none"}
         to="/topics"
       >
         Topics
@@ -18,7 +27,7 @@ export default function Navigation({ selectedNav, handleClick }) {
         onClick={() => {
           handleClick("article");
         }}
-        className={selectedNav ? "active" : "none"}
+        className={highLighted === "article" ? "active" : "none"}
         to="/articles"
       >
         Articles{" "}

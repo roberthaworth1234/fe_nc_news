@@ -19,23 +19,17 @@ export default class App extends React.Component {
       "weegembump",
       "tickle122"
     ],
-    selectedNav: true,
-    highLighted: "article"
+    highLighted: "welcome"
   };
   render() {
-    const { users, user, selectedNav, highLighted } = this.state;
+    const { users, user, highLighted } = this.state;
     return (
       <div id="app">
         <Header selectUser={this.selectUser} user={user} users={users} />
-        <Navigation
-          selectedNav={selectedNav}
-          highLighted={highLighted}
-          handleClick={this.handleClick}
-        />
+        <Navigation highLighted={highLighted} handleClick={this.handleClick} />
         <Router id="router">
           <Welcome user={user} path="/" />
           <Topics
-            selectedNav={selectedNav}
             highLighted={highLighted}
             handleClick={this.handleClick}
             user={user}
@@ -50,16 +44,9 @@ export default class App extends React.Component {
     );
   }
   handleClick = linkType => {
-    let newType = "topic";
     if (linkType !== this.state.highLighted) {
-      if (linkType === "article") newType = "article";
-      if (linkType === "topic") newType = "topic";
-      if (linkType === "topictoarticle") newType = "article";
-      return this.setState(currentState => {
-        return {
-          selectedNav: !currentState.selectedNav,
-          highLighted: newType
-        };
+      return this.setState({
+        highLighted: linkType
       });
     }
   };

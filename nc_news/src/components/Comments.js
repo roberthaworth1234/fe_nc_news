@@ -5,8 +5,9 @@ import Voting from "./Voting";
 import DeleteButton from "./DeleteButton";
 import ErrorDisplay from "./ErrorDisplay";
 
-export default class CommentCard extends Component {
+export default class Comments extends Component {
   state = {
+    voteChange: 0,
     postComment: "",
     comments: [],
     err: {},
@@ -16,7 +17,7 @@ export default class CommentCard extends Component {
     const { err, isLoading } = this.state;
     if (isLoading) return <div className="loader"></div>;
     if (err.status) return <ErrorDisplay err={err} />;
-    const { comments, postComment } = this.state;
+    const { comments, postComment, voteChange } = this.state;
     const { user } = this.props;
     return (
       <ul>
@@ -32,15 +33,22 @@ export default class CommentCard extends Component {
             <li key={comment.comment_id}>
               <h5>{comment.author}</h5>
               <p>{comment.body}</p>
-             {(user === comment.author) ?  <DeleteButton
-                deleteNotAllowed={this.deleteNotAllowed}
-                isLoading={isLoading}
-                handleDelete={this.handleDelete}
-                user={user}
-                author={comment.author}
+              {user === comment.author ? (
+                <DeleteButton
+                  deleteNotAllowed={this.deleteNotAllowed}
+                  isLoading={isLoading}
+                  handleDelete={this.handleDelete}
+                  user={user}
+                  author={comment.author}
+                  id={comment.comment_id}
+                />
+              ) : null}
+              <Voting
                 id={comment.comment_id}
-             /> : null}
-              <Voting id={comment.comment_id} votes={comment.votes} />
+                votes={comment.votes}
+                voteChange={voteChange}
+                handleVotes={this.handleVotes}
+              />
             </li>
           );
         })}
@@ -115,6 +123,31 @@ export default class CommentCard extends Component {
           };
         });
       })
+      .catch(({ response }) => {
+        if (response)
+          this.setState({
+            err: {
+              status: response.status,
+              msg: response.data.msg
+            }
+          });
+      });
+  };
+  handleVotes = (id, direction) => {
+    const { topic, comments } = this.state;
+    this.setState(currentState => {
+      return {
+        voteChange: currentState.voteChange + direction,
+        comments: comments.map(comment => {
+          return comment.comment_id === id
+            ? { ...comment, votes: comment.votes + direction }
+            : { ...comment };
+        })
+      };
+    });
+    api
+      .changeVotes(id, direction, topic)
+      .then(res => {})
       .catch(({ response }) => {
         if (response)
           this.setState({

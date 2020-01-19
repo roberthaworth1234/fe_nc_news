@@ -13,7 +13,7 @@ export default class Topics extends Component {
   fetchTopics() {
     api.getTopics().then(data => {
       this.setState({ topics: data.topics, isLoading: false });
-    })
+    });
   }
   render() {
     const { isLoading, topics } = this.state;
@@ -27,13 +27,13 @@ export default class Topics extends Component {
             return (
               <Link
                 onClick={() => {
-                  handleClick("topictoarticle");
+                  handleClick("article");
                 }}
                 to={`/articles/topics/${topic.slug}`}
                 key={topic.slug}
               >
-                <li>
-                  <p>Topic - {topic.slug}</p>
+                <li id="topicid">
+                  <h3>{topic.slug}</h3>
                   <p>Description - {topic.description}</p>
                 </li>
               </Link>

@@ -7,7 +7,7 @@ export default class Articles extends Component {
   state = {
     articles: [],
     isLoading: true,
-    direction: true,
+    toggleSort: true,
     button: "select a sort button",
     err: {}
   };
@@ -24,23 +24,6 @@ export default class Articles extends Component {
     if (prevProps.topic !== this.props.topic) {
       this.fetchArticles();
     }
-  }
-  fetchArticles(topic) {
-    api
-      .getArticles(topic)
-      .then(data =>
-        this.setState({ articles: data.articles, isLoading: false })
-      )
-      .catch(({ response }) => {
-        if (response)
-          this.setState({
-            err: {
-              status: response.status,
-              msg: "Articles " + response.data.msg
-            },
-            isLoading: false
-          });
-      });
   }
 
   render() {
@@ -69,17 +52,34 @@ export default class Articles extends Component {
       </main>
     );
   }
-  handleClick(button) {
-    this.setState({isLoading: true})
-    const { direction } = this.state;
+  fetchArticles(topic) {
     api
-      .getSortedArticles(button, direction)
+      .getArticles(topic)
+      .then(data =>
+        this.setState({ articles: data.articles, isLoading: false })
+      )
+      .catch(({ response }) => {
+        if (response)
+          this.setState({
+            err: {
+              status: response.status,
+              msg: "Articles " + response.data.msg
+            },
+            isLoading: false
+          });
+      });
+  }
+  handleClick(button) {
+    this.setState({ isLoading: true });
+    const { toggleSort } = this.state;
+    api
+      .getSortedArticles(button, toggleSort)
       .then(data => {
         this.setState({
           isLoading: false,
           articles: data.articles,
-          button: button + (direction ? " ascending ↑" : " descending ↓"),
-          direction: !direction
+          button: button + (toggleSort ? " ascending ↑" : " descending ↓"),
+          toggleSort: !toggleSort
         });
       })
       .catch(({ response }) => {

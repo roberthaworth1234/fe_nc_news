@@ -1,30 +1,48 @@
-import React from "react";
+import React, { Component } from "react";
 
-export default function AddComment({
-  handleChange,
-  handleSubmit,
-  postComment,
-  isLoading
-}) {
-  if(isLoading) return <div className="loader"></div>
-  return (
-    <form
-      onSubmit={e => {
-        handleSubmit(e);
-      }}
-    >
-      <label>
-        Add a Comment:
-        <input
-          value={postComment}
-          onChange={e => {
-            handleChange(e.target.value, "postComment");
-          }}
-          placeholder="add a comment here"
-          required
-        ></input>
-      </label>
-      <button>Submit</button>
-    </form>
-  );
+export default class AddComment extends Component {
+  state = {
+    postComment: "",
+    isLoading: true
+  };
+  render() {
+    const { postComment, isLoading } = this.state;
+    if (isLoading) return <div className="loader"></div>;
+    return (
+      <form
+        onSubmit={e => {
+          this.handleSubmit(e);
+        }}
+      >
+        <label>
+          Add a Comment:
+          <input
+            value={postComment}
+            onChange={e => {
+              this.handleChange(e.target.value, "postComment");
+            }}
+            placeholder="add a comment here"
+            required
+          ></input>
+        </label>
+        <button>Submit</button>
+      </form>
+    );
+  }
+  componentDidMount() {
+    this.setState({ isLoading: false });
+  }
+  handleSubmit = event => {
+    const { postComment } = this.state;
+    this.setState({ isLoading: true, postComment: "" });
+    event.preventDefault();
+    const { article_id, user, postCommentByArticleId } = this.props;
+    postCommentByArticleId(article_id, postComment, user).then(res => {
+      this.setState({ isLoading: false });
+    });
+  };
+
+  handleChange = (e, inputName) => {
+    this.setState({ [inputName]: e });
+  };
 }

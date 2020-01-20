@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import * as api from "./api";
-import CommentCard from "./Comments";
+import Comments from "./Comments";
 import Voting from "./Voting";
 import ErrorDisplay from "./ErrorDisplay";
 
@@ -51,13 +51,17 @@ export default class IndividualArticle extends Component {
       voteChange
     } = this.state;
     const { user } = this.props;
+    let index = 0;
+    if (topic === "football") index = 1;
+    if (topic === "cooking") index = 2;
     if (isLoading) return <div className="loader"></div>;
     if (err.status) return <ErrorDisplay err={err} />;
     return (
       <article>
-        <h3>{title} </h3>
+        <h3>{title}</h3>
+        <img src={require(`../images/IMG_861${index}.JPG`)} alt={topic} />
         <p>Article {article_id}</p>
-        <p>{body} </p>
+        <p id="body">{body} </p>
         <Voting
           voteChange={voteChange}
           user={user}
@@ -66,11 +70,11 @@ export default class IndividualArticle extends Component {
           topic={topic}
           handleVotes={this.handleVotes}
         />
-        <CommentCard user={user} article_id={article_id} />
+        <Comments user={user} article_id={article_id} />
       </article>
     );
   }
-  handleVotes =(id, direction)=> {
+  handleVotes = (id, direction) => {
     const { topic } = this.state;
     this.setState(currentState => {
       return {
@@ -90,5 +94,5 @@ export default class IndividualArticle extends Component {
             }
           });
       });
-  }
+  };
 }

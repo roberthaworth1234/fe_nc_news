@@ -9,7 +9,7 @@ export default function ArticleCards({ article }) {
         <h3>
           {" "}
           Title: {article.title}
-          <br></br> Votes | {article.votes}
+          <p> Votes | {article.votes}</p>
         </h3>
         <p>
           by: {article.author} | created - {timeFormatter(article.created_at)}

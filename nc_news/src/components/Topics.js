@@ -23,7 +23,7 @@ export default class Topics extends Component {
       <main>
         <h2>Topics</h2>
         <ul>
-          {topics.map(topic => {
+          {topics.map((topic, i) => {
             return (
               <Link
                 onClick={() => {
@@ -33,8 +33,14 @@ export default class Topics extends Component {
                 key={topic.slug}
               >
                 <li id="topicid">
-                  <h3>{topic.slug}</h3>
-                  <p>Description - {topic.description}</p>
+                  <img
+                    src={require(`../images/IMG_861${i}.JPG`)}
+                    alt={`${topic.slug}`}
+                  />
+                  <h3 className="topicpadding1">{topic.slug}</h3>
+                  <p className="topicpadding2">
+                    Description - {topic.description}
+                  </p>
                 </li>
               </Link>
             );

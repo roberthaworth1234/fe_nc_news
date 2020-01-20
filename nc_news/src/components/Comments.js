@@ -8,25 +8,24 @@ import ErrorDisplay from "./ErrorDisplay";
 export default class Comments extends Component {
   state = {
     voteChange: 0,
-    postComment: "",
     comments: [],
     err: {},
-    isLoading: false
+    isLoading: true
   };
   render() {
     const { err, isLoading } = this.state;
     if (isLoading) return <div className="loader"></div>;
     if (err.status) return <ErrorDisplay err={err} />;
-    const { comments, postComment, voteChange } = this.state;
-    const { user } = this.props;
+    const { comments, voteChange } = this.state;
+    const { user, article_id } = this.props;
     return (
       <ul>
         <h4>Comments</h4>
         <AddComment
           isLoading={isLoading}
-          postComment={postComment}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
+          article_id={article_id}
+          user={user}
+          postCommentByArticleId={this.postCommentByArticleId}
         />
         {comments.map(comment => {
           return (
@@ -67,7 +66,7 @@ export default class Comments extends Component {
     api
       .getComments(article_id)
       .then(data => {
-        this.setState({ comments: data });
+        this.setState({ comments: data, isLoading: false });
       })
       .catch(({ response }) => {
         if (response)
@@ -79,35 +78,6 @@ export default class Comments extends Component {
           });
       });
   }
-
-  handleSubmit = event => {
-    event.preventDefault();
-    const { article_id, user } = this.props;
-    const { postComment, comments } = this.state;
-    this.setState({ isLoading: true });
-    api
-      .addComment(article_id, postComment, user)
-      .then(({ comment }) => {
-        return this.setState({
-          comments: [comment, ...comments],
-          postComment: "",
-          isLoading: false
-        });
-      })
-      .catch(({ response }) => {
-        if (response)
-          this.setState({
-            err: {
-              status: response.status,
-              msg: response.data.msg
-            }
-          });
-      });
-  };
-
-  handleChange = (e, inputName) => {
-    this.setState({ [inputName]: e });
-  };
 
   handleDelete = id => {
     this.setState({ isLoading: true });
@@ -148,6 +118,25 @@ export default class Comments extends Component {
     api
       .changeVotes(id, direction, topic)
       .then(res => {})
+      .catch(({ response }) => {
+        if (response)
+          this.setState({
+            err: {
+              status: response.status,
+              msg: response.data.msg
+            }
+          });
+      });
+  };
+  postCommentByArticleId = (article_id, postComment, user) => {
+    const { comments } = this.state;
+    return api
+      .addComment(article_id, postComment, user)
+      .then(({ comment }) => {
+        return this.setState({
+          comments: [comment, ...comments]
+        });
+      })
       .catch(({ response }) => {
         if (response)
           this.setState({

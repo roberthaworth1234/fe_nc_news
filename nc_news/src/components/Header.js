@@ -10,7 +10,8 @@ export default function Header({ user, users, selectUser }) {
         <div className="dropdown-content">
           {users.map(user => {
             return (
-              <button key={user}
+              <button
+                key={user}
                 className="dropbtn1"
                 onClick={() => {
                   selectUser(user);
@@ -20,7 +21,6 @@ export default function Header({ user, users, selectUser }) {
               </button>
             );
           })}
-          
         </div>
       </div>
     </header>

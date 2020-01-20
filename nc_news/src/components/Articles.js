@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ArticleCards from "./ArticleCards";
 import * as api from "./api";
 import ErrorDisplay from "./ErrorDisplay";
+import { Sorting } from "./Sorting";
 
 export default class Articles extends Component {
   state = {
@@ -34,16 +35,7 @@ export default class Articles extends Component {
       <main>
         <h2>News</h2>
         <p className="sorted">Sorted By:{this.state.button}</p>
-        <button onClick={() => this.handleClick("author")}>
-          Sortby Author
-        </button>
-        <button onClick={() => this.handleClick("created_at")}>
-          Sortby Date
-        </button>
-        <button onClick={() => this.handleClick("comment_count")}>
-          Sortby Comment Count
-        </button>
-        <button onClick={() => this.handleClick("votes")}>Sortby Votes</button>
+        <Sorting handleClick={this.handleClick} />
         <ul className="ulart">
           {articles.map(article => {
             return <ArticleCards key={article.article_id} article={article} />;
@@ -69,7 +61,7 @@ export default class Articles extends Component {
           });
       });
   }
-  handleClick(button) {
+  handleClick = button => {
     this.setState({ isLoading: true });
     const { toggleSort } = this.state;
     api
@@ -92,5 +84,5 @@ export default class Articles extends Component {
             isLoading: false
           });
       });
-  }
+  };
 }

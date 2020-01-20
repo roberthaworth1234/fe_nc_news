@@ -230,7 +230,10 @@ h4 {
   #topicid {
     flex-direction: column;
   }
-  .topicpadding {
+  .topicpadding1 {
+    padding: 0px;
+  }
+  .topicpadding2 {
     padding: 0px;
   }
 }

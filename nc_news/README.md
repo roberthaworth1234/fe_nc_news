@@ -1,4 +1,4 @@
-### `RH - Northcoder News React App (Front End)`
+# `RH - Northcoder News React App (Front End)`
 
 ## `Overview`
 

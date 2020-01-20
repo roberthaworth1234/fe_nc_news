@@ -19,7 +19,7 @@
   padding: 4%;
   border: rgb(42, 22, 60) solid 3px;
   color: rgb(57, 57, 113);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 button {
   color: rgb(42, 22, 60);
@@ -30,16 +30,17 @@ button {
   font-size: 2fr;
   margin: 1%;
   cursor: pointer;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: "Poppins", sans-serif;
   background-color: rgb(131, 176, 186);
   border: rgb(57, 57, 113) solid 5px;
 }
 .ulart {
+  list-style-position: inside;
+  padding: 10px;
   columns: 2;
   -webkit-columns: 2;
   -moz-columns: 2;
-  list-style-type: none;
+  list-style: none;
 }
 .ul {
   list-style-type: none;
@@ -60,6 +61,7 @@ button {
 }
 
 nav {
+  font-size: 12px;
   color: goldenrod;
   font-family: "Ubuntu", Times, serif;
   grid-area: 2 / 1 / 3 / 1;
@@ -68,7 +70,11 @@ nav {
   align-items: left;
 }
 h2 {
+  font-family: "Roboto Mono", Arial, Helvetica, sans-serif;
   text-align: center;
+}
+h3 {
+  font-family: "Roboto Mono", monospace;
 }
 #login {
   font-size: 20px;
@@ -78,13 +84,14 @@ h2 {
   color: rgb(42, 22, 60);
 }
 #router {
-  /* background-image: url("./images/IMG_8596.jpg"); */
+  /* background-image: url("./images/IMG_8604.JPG");
+  background-blend-mode: lighten; */
   color: rgb(42, 22, 60);
   grid-area: 2 / 2 / 2 / 3;
 }
 main {
   grid-area: 2 / 2 / 2/ 3;
-  margin: 1fr;
+  margin: 0.5fr;
 }
 a:hover {
   color: goldenrod;
@@ -92,6 +99,9 @@ a:hover {
 a {
   text-decoration-line: none;
   color: rgb(42, 22, 60);
+}
+time {
+  font-size: 10px;
 }
 
 #li {
@@ -186,6 +196,8 @@ h4 {
   animation: spin 2s linear infinite;
 }
 #topicid {
+  font-size: 20px;
+  font-family: "Bangers", cursive;
   padding: 2%;
   display: flex;
   justify-content: flex-start;
@@ -197,7 +209,7 @@ h4 {
   padding: 20px;
 }
 .topicpadding2 {
-  padding: 25px;
+  padding: 30px;
 }
 
 /* Safari */

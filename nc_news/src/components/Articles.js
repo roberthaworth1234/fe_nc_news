@@ -33,7 +33,9 @@ export default class Articles extends Component {
     if (err.status) return <ErrorDisplay err={err} />;
     return (
       <main>
-        <h2>News</h2>
+        <h2>
+          News <span>🗞</span>{" "}
+        </h2>
         <p className="sorted">Sorted By:{this.state.button}</p>
         <Sorting handleClick={this.handleClick} />
         <ul className="ulart">

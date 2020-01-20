@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Bangers|Poppins|Roboto+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Bangers|Poppins|Roboto+Mono&display=swap");
 
 #app {
   background-color: #587b7f;
@@ -86,8 +86,9 @@ h3 {
   color: rgb(42, 22, 60);
 }
 #router {
-  /* background-image: url("./images/IMG_8604.JPG");
-  background-blend-mode: lighten; */
+  /* background-image: url("./images/IMG_7123.jpeg");
+  background-blend-mode: lighten;
+  background-position: ; */
   color: rgb(42, 22, 60);
   grid-area: 2 / 2 / 2 / 3;
 }

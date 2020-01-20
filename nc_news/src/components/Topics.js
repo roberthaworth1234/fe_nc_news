@@ -21,7 +21,12 @@ export default class Topics extends Component {
     if (isLoading) return <div className="loader"></div>;
     return (
       <main>
-        <h2>Topics</h2>
+        <h2>
+          Topics{" "}
+          <span role="img" aria-label="filing-cabinet">
+            🗄
+          </span>
+        </h2>
         <ul>
           {topics.map((topic, i) => {
             return (

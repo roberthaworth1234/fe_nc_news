@@ -1,14 +1,15 @@
-#RH - Northcoder News React App (Front End)
+### `RH - Northcoder News React App (Front End)`
 
-##Overview
+## `Overview`
+
 Please look through my App and components which make up my Front End block review of my Northcoders bootcamp.
 
+## `Getting started`
 
-##Getting started
 Please fork the repository to your own git username and clone the repo to specified file on your machine. npm install will install the dependancies required to run the react-app.
 
 ```
-git clone <insert forked repo url> 
+git clone <insert forked repo url>
 npm install
 ```
 
@@ -22,11 +23,12 @@ You will also see any lint errors in the console.
 
 ### `npm run test-util`
 
-Launches the tests written for specific utility functions.  This is more prevelant on the back-end repo, which was built on TDD.
+Launches the tests written for specific utility functions. This is more prevelant on the back-end repo, which was built on TDD.
 
 ### `Hosted on Heroku`
 
 Please view the hosted version of my react-app at the following url:
+
 ```
 https://rh-nc-news-app.herokuapp.com/
 ```

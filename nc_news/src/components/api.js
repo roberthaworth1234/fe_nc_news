@@ -64,3 +64,8 @@ export const deleteComment = id => {
     return res;
   });
 };
+export const getUsers = user => {
+  return axios.get(`${baseURL}/users/${user}`).then(({ data }) => {
+    return data;
+  });
+};

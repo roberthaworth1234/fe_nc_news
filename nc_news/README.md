@@ -2,14 +2,15 @@
 
 ## `Overview`
 
-Please look through my App and components which make up my Front End block review of my Northcoders bootcamp.
+Please look through my App and components which make up my Front End block review of my Northcoders bootcamp.  This implements what I have learnt regarding functionality in a website, serving up data requested asynchronously from the Back End api I have created.
 
 ## `Getting started`
 
-Please fork the repository to your own git username and clone the repo to specified file on your machine. npm install will install the dependancies required to run the react-app.
+Please fork the repository to your own git username and clone the repo to specified file on your machine. cd into the correct file...nc_news. And npm install will install the dependancies required to run the react-app. 
 
 ```
 git clone <insert forked repo url>
+cd fe_nc_news/nc_news
 npm install
 ```
 
@@ -18,8 +19,7 @@ npm install
 Runs the app in the development mode.<br />
 Open your [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+minimum node version - (v10.16.1)
 
 ### `npm run test-util`
 

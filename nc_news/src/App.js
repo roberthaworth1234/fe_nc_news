@@ -7,6 +7,7 @@ import Topics from "./components/Topics";
 import Articles from "./components/Articles";
 import ErrorDisplay from "./components/ErrorDisplay";
 import Welcome from "./components/Welcome";
+
 import "./App.css";
 
 export default class App extends React.Component {
@@ -26,7 +27,7 @@ export default class App extends React.Component {
     return (
       <div id="app">
         <Header selectUser={this.selectUser} user={user} users={users} />
-        <Navigation highLighted={highLighted} handleClick={this.handleClick} />
+        <Navigation user={user}highLighted={highLighted} handleClick={this.handleClick} />
         <Router id="router">
           <Welcome user={user} path="/" />
           <Topics

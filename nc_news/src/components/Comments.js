@@ -7,7 +7,6 @@ import ErrorDisplay from "./ErrorDisplay";
 
 export default class Comments extends Component {
   state = {
-    voteChange: 0,
     comments: [],
     err: {},
     isLoading: true
@@ -16,7 +15,7 @@ export default class Comments extends Component {
     const { err, isLoading } = this.state;
     if (isLoading) return <div className="loader"></div>;
     if (err.status) return <ErrorDisplay err={err} />;
-    const { comments, voteChange } = this.state;
+    const { comments } = this.state;
     const { user, article_id } = this.props;
     return (
       <ul>
@@ -45,7 +44,7 @@ export default class Comments extends Component {
               <Voting
                 id={comment.comment_id}
                 votes={comment.votes}
-                voteChange={voteChange}
+                voteChange={comment.voteChange}
                 handleVotes={this.handleVotes}
               />
             </li>
@@ -66,7 +65,12 @@ export default class Comments extends Component {
     api
       .getComments(article_id)
       .then(data => {
-        this.setState({ comments: data, isLoading: false });
+        this.setState({
+          comments: data.map(comment => {
+            return { ...comment, voteChange: 0 };
+          }),
+          isLoading: false
+        });
       })
       .catch(({ response }) => {
         if (response)
@@ -107,10 +111,13 @@ export default class Comments extends Component {
     const { topic, comments } = this.state;
     this.setState(currentState => {
       return {
-        voteChange: currentState.voteChange + direction,
         comments: comments.map(comment => {
           return comment.comment_id === id
-            ? { ...comment, votes: comment.votes + direction }
+            ? {
+                ...comment,
+                votes: comment.votes + direction,
+                voteChange: comment.voteChange + direction
+              }
             : { ...comment };
         })
       };

@@ -6,7 +6,7 @@ export default function Welcome({ user }) {
       <h2>WELCOME TO DREDDIT - NORTHCODERS NEWS!</h2>
       <p id="welcome">
         Welcome to my northcoders front end react app. Please have a navigate
-        around, vote and comment on existing articles.
+        around, read, vote and comment on articles.
       </p>
     </div>
   );

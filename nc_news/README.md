@@ -2,7 +2,7 @@
 
 ## `Overview`
 
-Please look through my App and components which make up my Front End block review of my Northcoders bootcamp.  This implements what I have learnt regarding functionality in a website, serving up data requested asynchronously from the Back End api I have created.
+Please look through my React App and components which make up my Front End block review of my Northcoders bootcamp.  This implements what I have learnt regarding functionality in a website and serves up data requested asynchronously from the Back End api I have created.
 
 ## `Getting started`
 

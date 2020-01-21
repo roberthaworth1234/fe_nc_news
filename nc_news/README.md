@@ -2,11 +2,11 @@
 
 ## `Overview`
 
-Please look through my React App and components which make up my Front End block review of my Northcoders bootcamp.  This implements what I have learnt regarding functionality in a website and serves up data requested asynchronously from the Back End api I have created.
+Please look through my React App and components which make up my Front End block review of my Northcoders bootcamp. This implements what I have learnt regarding functionality in a website and serves up data requested asynchronously from the Back End api I have created.
 
 ## `Getting started`
 
-Please fork the repository to your own git username and clone the repo to specified file on your machine. cd into the correct file...nc_news. And npm install will install the dependancies required to run the react-app. 
+Please fork the repository to your own git username and clone the repo to specified file on your machine. cd into the correct file...nc_news. And npm install will install the dependancies required to run the react-app.
 
 ```
 git clone <insert forked repo url>
@@ -29,14 +29,10 @@ Launches the tests written for specific utility functions. This is more prevelan
 
 Please view the hosted version of my react-app at the following url:
 
-```
 https://rh-nc-news-app.herokuapp.com/
-```
 
 ### `Back end repositiory`
 
 Please view my Back End api at the following url:
 
-```
 https://github.com/roberthaworth1234/Be-Review
-```

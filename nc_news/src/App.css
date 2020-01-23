@@ -41,6 +41,12 @@ button {
   background-color: rgb(131, 176, 186);
   border: rgb(57, 57, 113) solid 5px;
 }
+input {
+  width: 30%;
+  padding: 15px;
+  border: 2px solid rgb(57, 57, 113);
+  border-radius: 4px;
+}
 .ulart {
   list-style-position: inside;
   padding: 10px;

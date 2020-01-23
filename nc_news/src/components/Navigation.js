@@ -10,15 +10,6 @@ export default function Navigation({ highLighted, handleClick, user }) {
           🌎
         </span>
       </h2>
-      {/* <Link
-        onClick={() => {
-          handleClick("user");
-        }}
-        className={highLighted === "user" ? "active" : "none"}
-        to={`/${user}`}
-      >
-        User
-      </Link> */}
       <Link
         onClick={() => {
           handleClick("welcome");

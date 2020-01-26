@@ -10,6 +10,7 @@ export default class Articles extends Component {
     isLoading: true,
     toggleSort: true,
     button: "select a sort button",
+    selectedTopic: "All Topics",
     err: {}
   };
 
@@ -28,7 +29,7 @@ export default class Articles extends Component {
   }
 
   render() {
-    const { isLoading, articles, err } = this.state;
+    const { isLoading, articles, err, selectedTopic, button } = this.state;
     const { topic } = this.props;
     if (isLoading) return <div className="loader"></div>;
     if (err.status) return <ErrorDisplay err={err} />;
@@ -37,7 +38,10 @@ export default class Articles extends Component {
         <h2>
           News <span>🗞</span>{" "}
         </h2>
-        <p className="sorted">Sorted By:{this.state.button}</p>
+        <p className="sorted">
+          #{selectedTopic} Sorted By:
+          {button}
+        </p>
         <Sorting topic={topic} handleClick={this.handleClick} />
         <ul className="ulart">
           {articles.map(article => {
@@ -51,7 +55,12 @@ export default class Articles extends Component {
     api
       .getArticles(topic)
       .then(data =>
-        this.setState({ articles: data.articles, isLoading: false })
+        this.setState({
+          articles: data.articles,
+          isLoading: false,
+          button: "select a sort button",
+          selectedTopic: topic ? topic : "All Topics"
+        })
       )
       .catch(({ response }) => {
         if (response)

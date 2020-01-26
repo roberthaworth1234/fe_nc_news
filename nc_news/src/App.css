@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Bangers|Poppins|Roboto+Mono&display=swap");
 
 #app {
-  background-color: #587b7f;
+  background-color: #6a9296;
   display: grid;
   grid-template-columns: 1fr 7fr;
   grid-template-rows: 1fr 14fr;
@@ -10,6 +10,13 @@
 #welcome {
   font-family: "Roboto Mono";
   text-align: center;
+}
+.specialButton {
+  border-radius: 50%;
+  background-color: rgb(57, 57, 113);
+}
+.specialButton:hover {
+  background-color: lightcyan;
 }
 
 .specialButtonUp {
@@ -21,11 +28,11 @@
   background-color: rgb(194, 95, 88);
 }
 #body {
-  background-color: lightslategray;
+  background-color: rgb(151, 177, 182);
   border-radius: 10%;
   padding: 4%;
   border: rgb(42, 22, 60) solid 3px;
-  color: rgb(57, 57, 113);
+  color: rgb(33, 33, 67);
   font-family: "Poppins", sans-serif;
 }
 button {
@@ -129,7 +136,7 @@ time {
 }
 
 .sidenav {
-  background-color: #404548;
+  background-color: #696f6f;
   overflow: hidden;
 }
 .sorted {
@@ -224,6 +231,11 @@ h4 {
 }
 .topicpadding2 {
   padding: 30px;
+}
+
+canvas {
+  background: #023;
+  display: block;
 }
 
 /* Safari */

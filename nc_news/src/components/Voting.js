@@ -6,7 +6,7 @@ export default function Voting({ id, handleVotes, voteChange, votes }) {
       Votes {votes}
       <button
         disabled={voteChange > 0 ? true : null}
-        className="specialButtonUp"
+        className={voteChange === 1 ? "specialButtonUp" : "specialButton"}
         onClick={() => {
           handleVotes(id, 1);
         }}
@@ -17,7 +17,7 @@ export default function Voting({ id, handleVotes, voteChange, votes }) {
       </button>
       <button
         disabled={voteChange < 0 ? true : null}
-        className="specialButtonDown"
+        className={voteChange === -1 ? "specialButtonDown" : "specialButton"}
         onClick={() => {
           handleVotes(id, -1);
         }}

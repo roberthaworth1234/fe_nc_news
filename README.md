@@ -10,7 +10,6 @@ Please fork the repository to your own git username and clone the repo to specif
 
 ```
 git clone <insert forked repo url>
-cd fe_nc_news/nc_news
 npm install
 ```
 

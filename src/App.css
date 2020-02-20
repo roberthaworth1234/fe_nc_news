@@ -267,6 +267,9 @@ canvas {
   .ulart {
     columns: 1;
   }
+  /* main {
+    display: flex;
+  } */
   #topicid {
     flex-direction: column;
   }
@@ -282,6 +285,14 @@ canvas {
     display: grid;
     grid-template-columns: 20% 20% 20% 20%;
     grid-template-rows: 20% 20% 20% 20%;
+  }
+  h1 {
+    font-size: 28px;
+  }
+  img {
+    border-radius: 20%;
+    width: 260px;
+    height: 200px;
   }
   .dropdown {
     grid-area: 4/1/4/1;

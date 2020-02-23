@@ -129,7 +129,7 @@ time {
 
 #li {
   border-radius: 25px;
-  border-top: #aeb7bd solid 2px;
+  border-top: rgb(42, 22, 60) solid 2px;
   padding: 1%;
 }
 #li :hover {

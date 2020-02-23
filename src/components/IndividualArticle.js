@@ -21,7 +21,12 @@ export default class IndividualArticle extends Component {
   componentDidMount() {
     this.fetchArticles();
   }
-
+  componentDidUpdate(prevProps, prevState) {
+    console.log(prevState.comment_count, this.state);
+  }
+  articleState = (arg) => {
+    this.setState({});
+  };
   fetchArticles() {
     api
       .getSingleArticle(this.props.article_id)

@@ -2,7 +2,7 @@
 
 #app {
   font-family: "Roboto Mono", sans-serif;
-  background-color: #6a9296;
+  background-color: #98babd;
   display: grid;
   grid-template-columns: 1fr 7fr;
   grid-template-rows: 1fr 14fr;
@@ -33,7 +33,7 @@
   border-radius: 10%;
   padding: 4%;
   border: rgb(42, 22, 60) solid 3px;
-  color: rgb(33, 33, 67);
+  color: rgb(42, 22, 60);
   font-family: "Poppins", sans-serif;
 }
 button {
@@ -53,7 +53,7 @@ input {
   font-family: "Poppins", sans-serif;
   width: 30%;
   padding: 15px;
-  border: 2px solid rgb(57, 57, 113);
+  border: 2px solid rgb(42, 22, 60);
   border-radius: 4px;
 }
 .ulart {
@@ -74,7 +74,7 @@ input {
   grid-template-rows: 20% 20% 20% 20%;
   background-image: url("./images/IMG_8595.jpg");
   background-size: 100%;
-  border-bottom: solid rgb(30, 2, 155) 5px;
+  border-bottom: solid rgb(42, 22, 60);
   color: rgb(42, 22, 60);
   font-family: "Roboto Mono", sans-serif;
   font-size: 36px;
@@ -83,10 +83,10 @@ input {
 }
 
 nav {
-  border-right: solid rgb(30, 2, 155) 2px;
+  border-right: solid rgb(42, 22, 60) 2px;
   top: 0;
   font-size: 12px;
-  color: goldenrod;
+  color: rgb(110, 81, 8);
   font-family: "Poppins", sans-serif;
   grid-area: 2 / 1 / 3 / 1;
   display: flex;
@@ -117,7 +117,7 @@ main {
   margin: 0.5fr;
 }
 a:hover {
-  color: goldenrod;
+  color: rgb(114, 10, 59);
 }
 a {
   text-decoration-line: none;
@@ -129,7 +129,7 @@ time {
 
 #li {
   border-radius: 25px;
-  border-top: #393e41 solid 2px;
+  border-top: #aeb7bd solid 2px;
   padding: 1%;
 }
 #li :hover {
@@ -137,7 +137,7 @@ time {
 }
 
 .sidenav {
-  background-color: #696f6f;
+  background-color: #a2a3a3;
   overflow: hidden;
 }
 .sorted {
@@ -153,7 +153,7 @@ time {
 }
 
 .sidenav a:hover {
-  background-color: goldenrod;
+  background-color: rgb(114, 10, 59);
   color: black;
 }
 

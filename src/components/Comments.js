@@ -60,6 +60,7 @@ export default class Comments extends Component {
     if (prevState.comments.length < this.state.comments.length)
       return this.setState({ comments: this.state.comments });
   }
+
   fetchComments() {
     const { article_id } = this.props;
     api
@@ -140,6 +141,7 @@ export default class Comments extends Component {
     return api
       .addComment(article_id, postComment, user)
       .then(({ comment }) => {
+        comment.voteChange = 0;
         return this.setState({
           comments: [comment, ...comments]
         });

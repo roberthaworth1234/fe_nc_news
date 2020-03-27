@@ -64,7 +64,7 @@ export default class IndividualArticle extends Component {
     return (
       <article>
         <center>
-        <h3>{title}</h3>
+        <h3 className="title">{title}</h3>
         <img src={require(`../images/IMG_861${index}.JPG`)} alt={topic} />
 
         </center>

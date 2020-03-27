@@ -15,8 +15,9 @@ export default class AddComment extends Component {
         }}
       >
         <label>
-          Add a Comment:
-          <input
+          Add a Comment 
+          <input className="inputBox"
+          type='text'
             value={postComment}
             onChange={e => {
               this.handleChange(e.target.value, "postComment");

@@ -9,7 +9,7 @@ export default function Header({ user, users, selectUser }) {
           📰
         </span>
       </h1>
-      <p id="login">You are currently logged in as : {user}</p>
+      <p id="login">Current User : {user}</p>
       <div className="dropdown">
         <button className="dropbtn">Select User</button>
         <div className="dropdown-content">

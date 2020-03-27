@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ArticleCards from "./ArticleCards";
 import * as api from "./api";
 import ErrorDisplay from "./ErrorDisplay";
+import Sidepanel from "./Sidepanel"
 import { Sorting } from "./Sorting";
 
 export default class Articles extends Component {
@@ -11,6 +12,7 @@ export default class Articles extends Component {
     toggleSort: true,
     button: "select a sort button",
     selectedTopic: "All Topics",
+    email: null,
     err: {}
   };
 
@@ -39,10 +41,10 @@ export default class Articles extends Component {
           News <span>🗞</span>{" "}
         </h2>
         <p className="sorted">
-          #{selectedTopic} Sorted By:
-          {button}
+          #{selectedTopic} & {button}
         </p>
-        <Sorting topic={topic} handleClick={this.handleClick} />
+        <Sorting button={button} topic={topic} handleClick={this.handleClick} />
+        <Sidepanel email={this.state.email} handleEmailClick={this.handleEmailClick}/>
         <ul className="ulart">
           {articles.map(article => {
             return <ArticleCards key={article.article_id} article={article} />;
@@ -86,7 +88,7 @@ export default class Articles extends Component {
                 return article.topic === topic;
               })
             : data.articles,
-          button: button + (toggleSort ? " ascending ↑" : " descending ↓"),
+          button: button + (toggleSort ? " descending ↓":" ascending ↑"  ),
           toggleSort: !toggleSort
         });
       })
@@ -101,4 +103,7 @@ export default class Articles extends Component {
           });
       });
   };
+  handleEmailClick = () => {
+    this.setState({email: 'roberthaworth1234@hotmail.com'})
+  }
 }

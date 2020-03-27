@@ -39,8 +39,8 @@ export const getTopics = () => {
 };
 
 export const getSortedArticles = (sortVal, direction) => {
-  if (direction) direction = "asc";
-  if (!direction) direction = "desc";
+  if (direction) direction = "desc";
+  if (!direction) direction = "asc";
   return axios
     .get(`${baseURL}/articles?sort_by=${sortVal}&&order=${direction}`)
     .then(({ data }) => {

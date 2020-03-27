@@ -22,7 +22,7 @@ export default class IndividualArticle extends Component {
     this.fetchArticles();
   }
   componentDidUpdate(prevProps, prevState) {
-    console.log(prevState.comment_count, this.state);
+    // console.log(prevState.comment_count, this.state);
   }
   articleState = (arg) => {
     this.setState({});
@@ -63,8 +63,11 @@ export default class IndividualArticle extends Component {
     if (err.status) return <ErrorDisplay err={err} />;
     return (
       <article>
+        <center>
         <h3>{title}</h3>
         <img src={require(`../images/IMG_861${index}.JPG`)} alt={topic} />
+
+        </center>
         <p>Article {article_id}</p>
         <p id="body">{body} </p>
         <Voting

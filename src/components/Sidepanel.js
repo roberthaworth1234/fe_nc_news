@@ -3,6 +3,7 @@ import React from 'react'
 export default function Sidepanel({ email, handleEmailClick}) {
   return (
     <div className="sidePanel">
+      
       <a href="https://rh-nc-news-app.herokuapp.com/"><p>
         About
       </p>

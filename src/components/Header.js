@@ -5,7 +5,7 @@ export default function Header({ user, users, selectUser }) {
     <header className="headers">
       <h1>
         DREADIT!
-        <span role="img" aria-label="newspaper">
+        <span id='newspaper'role="img" aria-label="newspaper">
           📰
         </span>
       </h1>

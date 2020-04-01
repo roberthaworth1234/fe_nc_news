@@ -339,6 +339,7 @@ h4 {
   padding: 2%;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 #topicid :hover {
   transform: scale(1.1);
@@ -349,7 +350,7 @@ h4 {
   padding: 20px;
 }
 .topicpadding2 {
-  width:300px;
+  width: 300px;
   max-width: 300px;
   padding: 30px;
 }
@@ -448,6 +449,9 @@ canvas {
     justify-content: center;
     margin: 0px 2px 0px 2px;
   }
+  .ulart{
+    align-self: center;
+  }
   .sortImg {
     margin: 2px;
     height: 20px;
@@ -467,7 +471,7 @@ canvas {
     grid-template-rows: 20% 20% 20% 20%;
   }
   h1 {
-    font-size: 22px;
+    font-size: 38px;
   }
   img {
     border-radius: 20%;
@@ -491,12 +495,18 @@ canvas {
   ul.ulart {
     padding-left: 1px;
   }
-  #login {
+  #newspaper {
     position: absolute;
     top: 2px;
+    right: 20px;
+  }
+  #login {
+    position: absolute;
+    top: 100px;
     right: 10px;
   }
   .dropdown {
+    margin: 0px 0px 5px 5px;
     grid-area: 4/1/4/1;
   }
   ul {

@@ -414,6 +414,9 @@ canvas {
     display: flex;
     flex-direction: column;
   }
+  h1 {
+    font-size: 22px;
+  }
 
   .ulart {
     columns: 1;
@@ -449,7 +452,7 @@ canvas {
     justify-content: center;
     margin: 0px 2px 0px 2px;
   }
-  .ulart{
+  .ulart {
     align-self: center;
   }
   .sortImg {
@@ -517,5 +520,4 @@ canvas {
   ul.ulart {
     margin-left: 10px;
   }
-
 }

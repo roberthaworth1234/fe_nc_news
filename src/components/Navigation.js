@@ -4,12 +4,6 @@ import React from "react";
 export default function Navigation({ highLighted, handleClick, user }) {
   return (
     <nav className="sidenav">
-      {/* <h2>
-        Navigation{" "}
-        <span role="img" aria-label="globe">
-          🌎
-        </span>
-      </h2> */}
       <Link
         onClick={() => {
           handleClick("welcome");

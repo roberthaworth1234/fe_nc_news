@@ -15,9 +15,10 @@ export default class AddComment extends Component {
         }}
       >
         <label>
-          Add a Comment 
-          <input className="inputBox"
-          type='text'
+          Add a Comment
+          <input
+            className="inputBox"
+            type="text"
             value={postComment}
             onChange={e => {
               this.handleChange(e.target.value, "postComment");
@@ -34,9 +35,9 @@ export default class AddComment extends Component {
     this.setState({ isLoading: false });
   }
   handleSubmit = event => {
+    event.preventDefault();
     const { postComment } = this.state;
     this.setState({ isLoading: true, postComment: "" });
-    event.preventDefault();
     const { article_id, user, postCommentByArticleId } = this.props;
     postCommentByArticleId(article_id, postComment, user).then(res => {
       this.setState({ isLoading: false });

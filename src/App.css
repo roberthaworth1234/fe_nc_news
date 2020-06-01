@@ -192,8 +192,19 @@ a {
   font-size: 20px;
   font-family: "Roboto mono", sans-serif;
 }
+.emailToggle {
+  border: none;
+  background-color: whitesmoke;
+  padding: 0px;
+  margin: 0px 0px 20px 0px;
+  font-size: 20px;
+  font-family: "Roboto mono", sans-serif;
+}
 
 .email:hover {
+  color: rgb(114, 10, 59);
+}
+.emailToggle:hover {
   color: rgb(114, 10, 59);
 }
 .sidenav {
@@ -258,6 +269,9 @@ p.cardVotes {
   background-color: rgb(114, 10, 59);
   color: rgb(255, 255, 255);
 }
+.sort:active {
+  color: yellow !important;
+}
 
 #active {
   background-color: rgb(42, 22, 60);
@@ -312,8 +326,10 @@ h4 {
   font-size: 20px;
   display: none;
   position: absolute;
+  right: 20px;
   background-color: #005574;
   min-width: 120px;
+  max-width: 200px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
@@ -345,6 +361,7 @@ h4 {
   transform: scale(1.1);
 }
 .topicpadding1 {
+  margin-top: 0;
   width: 100px;
   max-width: 100px;
   padding: 20px;
@@ -519,5 +536,8 @@ canvas {
 @media screen and (max-width: 350px) {
   ul.ulart {
     margin-left: 10px;
+  }
+  .email {
+    font-size: 10px;
   }
 }

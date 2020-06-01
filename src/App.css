@@ -269,9 +269,6 @@ p.cardVotes {
   background-color: rgb(114, 10, 59);
   color: rgb(255, 255, 255);
 }
-.sort:active {
-  color: yellow !important;
-}
 
 #active {
   background-color: rgb(42, 22, 60);
